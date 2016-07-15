@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
-  root "home#index"
+
+  resources :dashboard, only: [:index]
+
+  root 'high_voltage/pages#show', id: 'about'
 end

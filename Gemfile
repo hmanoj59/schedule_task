@@ -32,6 +32,9 @@ gem 'country_select'
 gem 'ice_cube' # recurring event model (iCal model: https://tools.ietf.org/html/rfc5545#section-3.6.1 )
 gem 'rounding' # round time to nearest minute or for other rounding purpose
 
+# website
+gem 'high_voltage', '~> 3.0.0'
+
 # authentication
 gem 'devise'
 gem 'devise-async'
