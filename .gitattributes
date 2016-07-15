@@ -1,0 +1,9 @@
+config/deploy/deploy.rb   export-ignore
+config/deploy/            export-ignore
+zdesign/                  export-ignore
+test/                     export-ignore
+README.rdoc               export-ignore
+Dockerfile                export-ignore
+.dockerignore             export-ignore
+build-docker-image.sh     export-ignore
+wercker.yml               export-ignore
