@@ -16,16 +16,15 @@ gem 'redis-rails'
 gem 'sass-rails', '~> 5.0' # Use SCSS for stylesheets
 gem 'uglifier', '>= 1.3.0' # Use Uglifier as compressor for JavaScript assets
 gem 'coffee-rails', '~> 4.2'  # Use CoffeeScript for .coffee assets and views
-gem 'haml-rails'
+gem 'haml-rails' # Use HAML for templating
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+# UI and model
 gem 'jquery-rails'  # Use jquery as the JavaScript library
 gem 'turbolinks', '~> 5'  # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
-
-# UI and model
-gem 'bower-rails', '~> 0.9.2'
+gem 'bootstrap', '~> 4.0.0.alpha3'
 gem 'bh'
 gem 'growlyflash' # replace flash message
 gem 'kaminari'
@@ -57,7 +56,6 @@ end
 group :development do
   # Use Capistrano for deployment
   gem 'capistrano-rails'
-  gem 'capistrano-bower'
   gem 'capistrano-rvm'
   # documentation
   gem 'annotate'
