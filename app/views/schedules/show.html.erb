@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>name:</strong>
+  <%= @schedule.name %>
+</p>
+
+<p>
+  <strong>dbinstanceid:</strong>
+  <%= @schedule.dbinstanceid %>
+</p>
+
+<p>
+  <strong>snapshotid:</strong>
+  <%= @schedule.snapshotid %>
+</p>
+
+<p>
+  <strong>snapshotname:</strong>
+  <%= @schedule.snapshotname %>
+</p>
+
+<%= link_to 'Edit', edit_schedule_path(@schedule) %> |
+<%= link_to 'Back', schedule_path %>

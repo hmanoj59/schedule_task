@@ -7,6 +7,11 @@ gem 'dotenv-rails', require: 'dotenv/rails-now'
 gem 'puma', '~> 3.0' # Use Puma as the app server
 gem 'sidekiq'
 gem 'sidekiq-cron', '~> 0.4.0'  # scheduled sidekiq jobs
+gem 'skejuler-aws', :path=> '/Users/hotas/Desktop/skejuler-aws'
+gem 'binding_of_caller'
+
+
+
 # gem 'sinatra', require: nil   # sidekiq WebUI is sinatra-based app
 gem 'redis'
 gem 'redis-namespace'

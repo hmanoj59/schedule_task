@@ -1,5 +1,9 @@
 <h1>Dashboard</h1>
 
+<h1>Schedules</h1>
+<%= link_to 'New Schedule',   new_schedule_path,class: 'button alt' %>
 
-<%= link_to 'New Schedule',  new_schedule_path,class: 'button alt' %>
-
+<input type="button" onclick="window.location = '/rdsstart'">Rdsstart</input>
+<input type="button" onclick="window.location = '/rdsstop'">Rdsstop</input>
+<input type="button" onclick="window.location = '/ec2start'">Ec2start</input>
+<input type="button" onclick="window.location = '/ec2stop'">EC2start</input>

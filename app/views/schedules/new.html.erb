@@ -1,233 +1,238 @@
-<DOCTYPE!>
-<HTML>
-<head>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-  <style>
-    body{
-      /*background-color:  FFFFFF*/
-    }
-    form {
-      margin:50px auto;
-      width:876px;
-      height: 235px;
-      border-radius: 10px;
-      border-radius: 10px;
-      border-radius: 10px;
-    }
-  </style>
+<%= render 'form', schedule: @schedule %>
 
-  <form id="contact-form" method="post" action=" " role="form">
-    <h1> Editing Schedule </h1>
-    <p> Name </p>
-    <hr style="width: 100%; color: black; height: 1px; background-color:black;" />
-    <div class="messages"></div>
 
-    <div class="controls">
 
-      <!-- <div class="row"> -->
-      <div class="col-md-8">
-        <div class="form-group">
-          <label for="form_name"> * Name</label>
-          <input id="form_name" type="text" name="name" class="form-control" placeholder="Please enter your name *"  required="required" data-error="Name is required.">
-          <small class="text-muted">Enter a descriptive name for this scheduled job.</small>
-          <div class="help-block with-errors"></div>
-        </div>
-      </div>
-      <div class="form-group">
-        <div class="col-sm-10">
-          <label for="form_remarks">Remarks</label>
-          <input id="form_remarks" type="text" name="remarks" class="form-control" placeholder="Testing">
-          <small class="text-muted">Enter Remarks for this scheduled job </small>
-          <div class="help-block with-errors"></div>
-        </div>
-      </div>
-      <div class="form-group">
-        <div class="col-sm-10">
-          <div class="checkbox">
-            <label>
-              <input type="checkbox"> Enabled?
-            </label>
-          </div>
-        </div>
-      </div>
-      <hr style="width: 100%; color: black; height: 1px; background-color:black;" />
-      <div class="row">
-        <div class="col-md-8">
-          <div class="form-group">
-            <label for="form_timezone">My Time Zone</label>
-            <select name="DropDownTimezone" id="DropDownTimezone">
-              <option value="-12.0">(GMT -12:00) Eniwetok, Kwajalein</option>
-              <option value="-11.0">(GMT -11:00) Midway Island, Samoa</option>
-              <option value="-10.0">(GMT -10:00) Hawaii</option>
-              <option value="-9.0">(GMT -9:00) Alaska</option>
-              <option value="-8.0">(GMT -8:00) Pacific Time (US &amp; Canada)</option>
-              <option value="-7.0">(GMT -7:00) Mountain Time (US &amp; Canada)</option>
-              <option value="-6.0">(GMT -6:00) Central Time (US &amp; Canada), Mexico City</option>
-              <option value="-5.0">(GMT -5:00) Eastern Time (US &amp; Canada), Bogota, Lima</option>
-              <option value="-4.0">(GMT -4:00) Atlantic Time (Canada), Caracas, La Paz</option>
-              <option value="-3.5">(GMT -3:30) Newfoundland</option>
-              <option value="-3.0">(GMT -3:00) Brazil, Buenos Aires, Georgetown</option>
-              <option value="-2.0">(GMT -2:00) Mid-Atlantic</option>
-              <option value="-1.0">(GMT -1:00 hour) Azores, Cape Verde Islands</option>
-              <option value="0.0">(GMT) Western Europe Time, London, Lisbon, Casablanca</option>
-              <option value="1.0">(GMT +1:00 hour) Brussels, Copenhagen, Madrid, Paris</option>
-              <option value="2.0">(GMT +2:00) Kaliningrad, South Africa</option>
-              <option value="3.0">(GMT +3:00) Baghdad, Riyadh, Moscow, St. Petersburg</option>
-              <option value="3.5">(GMT +3:30) Tehran</option>
-              <option value="4.0">(GMT +4:00) Abu Dhabi, Muscat, Baku, Tbilisi</option>
-              <option value="4.5">(GMT +4:30) Kabul</option>
-              <option value="5.0">(GMT +5:00) Ekaterinburg, Islamabad, Karachi, Tashkent</option>
-              <option value="5.5">(GMT +5:30) Bombay, Calcutta, Madras, New Delhi</option>
-              <option value="5.75">(GMT +5:45) Kathmandu</option>
-              <option value="6.0">(GMT +6:00) Almaty, Dhaka, Colombo</option>
-              <option value="7.0">(GMT +7:00) Bangkok, Hanoi, Jakarta</option>
-              <option value="8.0">(GMT +8:00) Beijing, Perth, Singapore, Hong Kong</option>
-              <option value="9.0">(GMT +9:00) Tokyo, Seoul, Osaka, Sapporo, Yakutsk</option>
-              <option value="9.5">(GMT +9:30) Adelaide, Darwin</option>
-              <option value="10.0">(GMT +10:00) Eastern Australia, Guam, Vladivostok</option>
-              <option value="11.0">(GMT +11:00) Magadan, Solomon Islands, New Caledonia</option>
-              <option value="12.0">(GMT +12:00) Auckland, Wellington, Fiji, Kamchatka</option>
-            </select>
-            <div class="help-block with-errors"></div>
-            <small class="text-muted">My Time Zone </small>
-          </div>
-        </div>
-        <div class="container">
-          <div class="row">
-            <div class='col-sm-6'>
-              <div class="form-group">
-                <div class='input-group date' id='datetimepicker1'>
-                  <label for="form_email">Start Time</label>
-                  <input type='text' class="form-control" />
-                    <span class="input-group-addon">
-                        <span class="glyphicon glyphicon-calendar"></span>
-                    </span>
-                </div>
-                <small class="text-muted">Start Time </small>
-              </div>
-            </div>
-            <script type="text/javascript">
-              $(function () {
-                $('#datetimepicker1').datetimepicker();
-              });
-            </script>
-          </div>
-        </div>
-        <div class="form-group">
-          <div class="col-sm-10">
-            <div class="checkbox">
-              <label>
-                <input type="checkbox"> Repeat ...
-              </label>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="form-horizontal">
-        <div class="col-md-6">
-          <div class="form-group">
-            <label for="form_occur">Occurs</label>
-            <input id="form_occurs" name="email" class="form-control" required="required" data-error="Valid occurence event is required.">
-            <div class="help-block with-errors"></div>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="form-group">
-            <label for="form_hour">Enter X Hour</label>
-            <input id="form_hour" type = "numbers" name="hour" class="form-control" required="required" data-error="Valid Numers required.">
-            <small class="text-muted">Enter hourly intreval to repeat</small>
-            <div class="help-block with-errors"></div>
-          </div>
-        </div>
-      </div>
-      <form role="form">
-        <div class="checkbox">
-          <label><input type="checkbox" value="">Sunday</label>
-        </div>
-        <div class="checkbox">
-          <label><input type="checkbox" value="">Monday</label>
-        </div>
-        <div class="checkbox">
-          <label><input type="checkbox" value="">Tuesday</label>
-          <div class="checkbox">
-            <label><input type="checkbox" value="">Wednesday</label>
-          </div>
-          <div class="checkbox">
-            <label><input type="checkbox" value="">Thursday</label>
-          </div>
-          <div class="checkbox">
-            <label><input type="checkbox" value="">Friday</label>
-          </div>
-          <div class="checkbox">
-            <label><input type="checkbox" value="">Saturday</label>
-          </div>
-      </form>
-      <div class="col-md-6">
-        <div class="form-group">
-          <label for="form_week">Enter X week</label>
-          <input id="form_week" type = "numbers" name="week" class="form-control" required="required" data-error="Valid Numers required.">
-          <small class="text-muted">Enter weekly intreval to repeat</small>
-          <div class="help-block with-errors"></div>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="form-group">
-          <label for="form_hour">Enter X Month</label>
-          <input id="form_hour" type = "numbers" name="hour" class="form-control" required="required" data-error="Valid Numers required.">
-          <small class="text-muted">Enter Monthly intreval to repeat</small>
-          <div class="help-block with-errors"></div>
-        </div>
-      </div>
-    </div>
-    <hr style="width: 100%; color: black; height: 1px; background-color:black;" />
-    <div class="form-horizontal">
-      <div class="col-md-6">
-        <div class="form-group">
-          <label for="form_cloud">Cloud</label>
-          <input id="form_cloud" name="cloud" class="form-control" required="required" data-error="Valid cloud information is required.">
-          <small class="text-muted">which cloud is should be using?</small>
-          <div class="help-block with-errors"></div>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="form-group">
-          <label for="form_region">Region</label>
-          <input id="form_phone" type="tel" name="phone" class="form-control" placeholder="Please enter your phone">
-          <small class="text-muted">Enter Remarks about this scheduled job</small>
-          <div class="help-block with-errors"></div>
-        </div>
-      </div>
-    </div>
 
-    <hr style="width: 100%; color: black; height: 1px; background-color:black;" />
-    <div class="form-horizontal">
-      <div class="col-md-6">
-        <div class="form-group">
-          <label for="form_action">Action</label>
-          <input id="form_action" name="action" class="form-control" required="required" data-error="Valid email is required.">
-          <small class="text-muted">Specify action</small>
-          <div class="help-block with-errors"></div>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="form-group">
-          <label for="form_ids">InstanceID</label>
-          <input id="form_ids" name="ids" class="form-control" placeholder="i-123456">
-          <small class="text-muted">Instance IDs</small>
-          <div class="help-block with-errors"></div>
-        </div>
-      </div>
-    </div>
-    <hr style="width: 100%; color: black; height: 1px; background-color:black;" />
+<!--<DOCTYPE!>-->
+<!--<HTML>-->
+<!--<head>-->
+  <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">-->
+  <!--<style>-->
+    <!--/*body{*/-->
+      <!--/*!*background-color:  FFFFFF*!*/-->
+    <!--/*}*/-->
+    <!--/*form {*/-->
+      <!--/*margin:50px auto;*/-->
+      <!--/*width:876px;*/-->
+      <!--/*height: 235px;*/-->
+      <!--/*border-radius: 10px;*/-->
+      <!--/*border-radius: 10px;*/-->
+      <!--/*border-radius: 10px;*/-->
+    <!--/*}*/-->
+  <!--</style>-->
 
-    <div class="row">
-      <div class="col-md-12">
-        <input type="submit" class="btn btn-success btn-send" value="Create">
-      </div>
-    </div>
+  <!--<form id="contact-form" method="post" action=" " role="form">-->
+    <!--<h1> Editing Schedule </h1>-->
+    <!--<p> Name </p>-->
+    <!--<hr style="width: 100%; color: black; height: 1px; background-color:black;" />-->
+    <!--<div class="messages"></div>-->
 
-    <!-- </div> -->
+    <!--<div class="controls">-->
 
-  </form>
-</head>
-</html>
+      <!--&lt;!&ndash; <div class="row"> &ndash;&gt;-->
+      <!--<div class="col-md-8">-->
+        <!--<div class="form-group">-->
+          <!--<label for="form_name"> * Name</label>-->
+          <!--<input id="form_name" type="text" name="name" class="form-control" placeholder="Please enter your name *"  required="required" data-error="Name is required.">-->
+          <!--<small class="text-muted">Enter a descriptive name for this scheduled job.</small>-->
+          <!--<div class="help-block with-errors"></div>-->
+        <!--</div>-->
+      <!--</div>-->
+      <!--<div class="form-group">-->
+        <!--<div class="col-sm-10">-->
+          <!--<label for="form_remarks">Remarks</label>-->
+          <!--<input id="form_remarks" type="text" name="remarks" class="form-control" placeholder="Testing">-->
+          <!--<small class="text-muted">Enter Remarks for this scheduled job </small>-->
+          <!--<div class="help-block with-errors"></div>-->
+        <!--</div>-->
+      <!--</div>-->
+      <!--<div class="form-group">-->
+        <!--<div class="col-sm-10">-->
+          <!--<div class="checkbox">-->
+            <!--<label>-->
+              <!--<input type="checkbox"> Enabled?-->
+            <!--</label>-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
+      <!--<hr style="width: 100%; color: black; height: 1px; background-color:black;" />-->
+      <!--<div class="row">-->
+        <!--<div class="col-md-8">-->
+          <!--<div class="form-group">-->
+            <!--<label for="form_timezone">My Time Zone</label>-->
+            <!--<select name="DropDownTimezone" id="DropDownTimezone">-->
+              <!--<option value="-12.0">(GMT -12:00) Eniwetok, Kwajalein</option>-->
+              <!--<option value="-11.0">(GMT -11:00) Midway Island, Samoa</option>-->
+              <!--<option value="-10.0">(GMT -10:00) Hawaii</option>-->
+              <!--<option value="-9.0">(GMT -9:00) Alaska</option>-->
+              <!--<option value="-8.0">(GMT -8:00) Pacific Time (US &amp; Canada)</option>-->
+              <!--<option value="-7.0">(GMT -7:00) Mountain Time (US &amp; Canada)</option>-->
+              <!--<option value="-6.0">(GMT -6:00) Central Time (US &amp; Canada), Mexico City</option>-->
+              <!--<option value="-5.0">(GMT -5:00) Eastern Time (US &amp; Canada), Bogota, Lima</option>-->
+              <!--<option value="-4.0">(GMT -4:00) Atlantic Time (Canada), Caracas, La Paz</option>-->
+              <!--<option value="-3.5">(GMT -3:30) Newfoundland</option>-->
+              <!--<option value="-3.0">(GMT -3:00) Brazil, Buenos Aires, Georgetown</option>-->
+              <!--<option value="-2.0">(GMT -2:00) Mid-Atlantic</option>-->
+              <!--<option value="-1.0">(GMT -1:00 hour) Azores, Cape Verde Islands</option>-->
+              <!--<option value="0.0">(GMT) Western Europe Time, London, Lisbon, Casablanca</option>-->
+              <!--<option value="1.0">(GMT +1:00 hour) Brussels, Copenhagen, Madrid, Paris</option>-->
+              <!--<option value="2.0">(GMT +2:00) Kaliningrad, South Africa</option>-->
+              <!--<option value="3.0">(GMT +3:00) Baghdad, Riyadh, Moscow, St. Petersburg</option>-->
+              <!--<option value="3.5">(GMT +3:30) Tehran</option>-->
+              <!--<option value="4.0">(GMT +4:00) Abu Dhabi, Muscat, Baku, Tbilisi</option>-->
+              <!--<option value="4.5">(GMT +4:30) Kabul</option>-->
+              <!--<option value="5.0">(GMT +5:00) Ekaterinburg, Islamabad, Karachi, Tashkent</option>-->
+              <!--<option value="5.5">(GMT +5:30) Bombay, Calcutta, Madras, New Delhi</option>-->
+              <!--<option value="5.75">(GMT +5:45) Kathmandu</option>-->
+              <!--<option value="6.0">(GMT +6:00) Almaty, Dhaka, Colombo</option>-->
+              <!--<option value="7.0">(GMT +7:00) Bangkok, Hanoi, Jakarta</option>-->
+              <!--<option value="8.0">(GMT +8:00) Beijing, Perth, Singapore, Hong Kong</option>-->
+              <!--<option value="9.0">(GMT +9:00) Tokyo, Seoul, Osaka, Sapporo, Yakutsk</option>-->
+              <!--<option value="9.5">(GMT +9:30) Adelaide, Darwin</option>-->
+              <!--<option value="10.0">(GMT +10:00) Eastern Australia, Guam, Vladivostok</option>-->
+              <!--<option value="11.0">(GMT +11:00) Magadan, Solomon Islands, New Caledonia</option>-->
+              <!--<option value="12.0">(GMT +12:00) Auckland, Wellington, Fiji, Kamchatka</option>-->
+            <!--</select>-->
+            <!--<div class="help-block with-errors"></div>-->
+            <!--<small class="text-muted">My Time Zone </small>-->
+          <!--</div>-->
+        <!--</div>-->
+        <!--<div class="container">-->
+          <!--<div class="row">-->
+            <!--<div class='col-sm-6'>-->
+              <!--<div class="form-group">-->
+                <!--<div class='input-group date' id='datetimepicker1'>-->
+                  <!--<label for="form_email">Start Time</label>-->
+                  <!--<input type='text' class="form-control" />-->
+                    <!--<span class="input-group-addon">-->
+                        <!--<span class="glyphicon glyphicon-calendar"></span>-->
+                    <!--</span>-->
+                <!--</div>-->
+                <!--<small class="text-muted">Start Time </small>-->
+              <!--</div>-->
+            <!--</div>-->
+            <!--<script type="text/javascript">-->
+<!--//              $(function () {-->
+<!--//                $('#datetimepicker1').datetimepicker();-->
+<!--//              });-->
+            <!--</script>-->
+          <!--</div>-->
+        <!--</div>-->
+        <!--<div class="form-group">-->
+          <!--<div class="col-sm-10">-->
+            <!--<div class="checkbox">-->
+              <!--<label>-->
+                <!--<input type="checkbox"> Repeat ...-->
+              <!--</label>-->
+            <!--</div>-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
+      <!--<div class="form-horizontal">-->
+        <!--<div class="col-md-6">-->
+          <!--<div class="form-group">-->
+            <!--<label for="form_occur">Occurs</label>-->
+            <!--<input id="form_occurs" name="email" class="form-control" required="required" data-error="Valid occurence event is required.">-->
+            <!--<div class="help-block with-errors"></div>-->
+          <!--</div>-->
+        <!--</div>-->
+        <!--<div class="col-md-6">-->
+          <!--<div class="form-group">-->
+            <!--<label for="form_hour">Enter X Hour</label>-->
+            <!--<input id="form_hour" type = "numbers" name="hour" class="form-control" required="required" data-error="Valid Numers required.">-->
+            <!--<small class="text-muted">Enter hourly intreval to repeat</small>-->
+            <!--<div class="help-block with-errors"></div>-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
+      <!--<form role="form">-->
+        <!--<div class="checkbox">-->
+          <!--<label><input type="checkbox" value="">Sunday</label>-->
+        <!--</div>-->
+        <!--<div class="checkbox">-->
+          <!--<label><input type="checkbox" value="">Monday</label>-->
+        <!--</div>-->
+        <!--<div class="checkbox">-->
+          <!--<label><input type="checkbox" value="">Tuesday</label>-->
+          <!--<div class="checkbox">-->
+            <!--<label><input type="checkbox" value="">Wednesday</label>-->
+          <!--</div>-->
+          <!--<div class="checkbox">-->
+            <!--<label><input type="checkbox" value="">Thursday</label>-->
+          <!--</div>-->
+          <!--<div class="checkbox">-->
+            <!--<label><input type="checkbox" value="">Friday</label>-->
+          <!--</div>-->
+          <!--<div class="checkbox">-->
+            <!--<label><input type="checkbox" value="">Saturday</label>-->
+          <!--</div>-->
+      <!--</form>-->
+      <!--<div class="col-md-6">-->
+        <!--<div class="form-group">-->
+          <!--<label for="form_week">Enter X week</label>-->
+          <!--<input id="form_week" type = "numbers" name="week" class="form-control" required="required" data-error="Valid Numers required.">-->
+          <!--<small class="text-muted">Enter weekly intreval to repeat</small>-->
+          <!--<div class="help-block with-errors"></div>-->
+        <!--</div>-->
+      <!--</div>-->
+      <!--<div class="col-md-6">-->
+        <!--<div class="form-group">-->
+          <!--<label for="form_hour">Enter X Month</label>-->
+          <!--<input id="form_hour" type = "numbers" name="hour" class="form-control" required="required" data-error="Valid Numers required.">-->
+          <!--<small class="text-muted">Enter Monthly intreval to repeat</small>-->
+          <!--<div class="help-block with-errors"></div>-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
+    <!--<hr style="width: 100%; color: black; height: 1px; background-color:black;" />-->
+    <!--<div class="form-horizontal">-->
+      <!--<div class="col-md-6">-->
+        <!--<div class="form-group">-->
+          <!--<label for="form_cloud">Cloud</label>-->
+          <!--<input id="form_cloud" name="cloud" class="form-control" required="required" data-error="Valid cloud information is required.">-->
+          <!--<small class="text-muted">which cloud is should be using?</small>-->
+          <!--<div class="help-block with-errors"></div>-->
+        <!--</div>-->
+      <!--</div>-->
+      <!--<div class="col-md-6">-->
+        <!--<div class="form-group">-->
+          <!--<label for="form_region">Region</label>-->
+          <!--<input id="form_phone" type="tel" name="phone" class="form-control" placeholder="Please enter your phone">-->
+          <!--<small class="text-muted">Enter Remarks about this scheduled job</small>-->
+          <!--<div class="help-block with-errors"></div>-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
+
+    <!--<hr style="width: 100%; color: black; height: 1px; background-color:black;" />-->
+    <!--<div class="form-horizontal">-->
+      <!--<div class="col-md-6">-->
+        <!--<div class="form-group">-->
+          <!--<label for="form_action">Action</label>-->
+          <!--<input id="form_action" name="action" class="form-control" required="required" data-error="Valid email is required.">-->
+          <!--<small class="text-muted">Specify action</small>-->
+          <!--<div class="help-block with-errors"></div>-->
+        <!--</div>-->
+      <!--</div>-->
+      <!--<div class="col-md-6">-->
+        <!--<div class="form-group">-->
+          <!--<label for="form_ids">InstanceID</label>-->
+          <!--<input id="form_ids" name="ids" class="form-control" placeholder="i-123456">-->
+          <!--<small class="text-muted">Instance IDs</small>-->
+          <!--<div class="help-block with-errors"></div>-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
+    <!--<hr style="width: 100%; color: black; height: 1px; background-color:black;" />-->
+
+    <!--<div class="row">-->
+      <!--<div class="col-md-12">-->
+        <!--<input type="submit" class="btn btn-success btn-send" value="Create">-->
+      <!--</div>-->
+    <!--</div>-->
+
+    <!--&lt;!&ndash; </div> &ndash;&gt;-->
+
+  <!--</form>-->
+<!--</head>-->
+<!--</html>-->
