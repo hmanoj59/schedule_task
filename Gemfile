@@ -9,8 +9,7 @@ gem 'sidekiq'
 gem 'sidekiq-cron', '~> 0.4.0'  # scheduled sidekiq jobs
 gem 'skejuler-aws', :path=> '/Users/hotas/Desktop/skejuler-aws'
 gem 'binding_of_caller'
-
-
+gem 'bootstrap_form', '~> 2.3.0'
 
 # gem 'sinatra', require: nil   # sidekiq WebUI is sinatra-based app
 gem 'redis'

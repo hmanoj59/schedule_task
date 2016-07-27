@@ -73,6 +73,7 @@ GEM
     bootstrap (4.0.0.alpha3)
       autoprefixer-rails (>= 6.0.3)
       sass (>= 3.4.19)
+    bootstrap_form (2.3.0)
     builder (3.2.2)
     byebug (9.0.5)
     capistrano (3.5.0)
@@ -407,6 +408,7 @@ DEPENDENCIES
   bh
   binding_of_caller
   bootstrap (~> 4.0.0.alpha3)
+  bootstrap_form (~> 2.3.0)
   capistrano-rails
   capistrano-rvm
   capybara-webkit

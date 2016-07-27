@@ -1,3 +1,6 @@
+require '/Users/hotas/Desktop/skejuler-aws/lib/skejuler/aws/rds.rb'
+
+
 class SchedulesController < ApplicationController
 
   before_action :authenticate_user!
@@ -21,6 +24,8 @@ class SchedulesController < ApplicationController
     respond_to do |format|
       if @schedule.save
         format.html { redirect_to @schedule, notice: 'Schedule was successfully created.' }
+
+        rdsstart and return
         format.json { render :show, status: :created, location: @schedule }
       else
         format.html { render :new }
@@ -41,7 +46,14 @@ class SchedulesController < ApplicationController
     end
   end
 
-private
+  def destroy
+    @schedule.destroy
+    respond_to do |format|
+      format.html { redirect_to schedules_url, notice: 'Schedule was destroyed.' }
+      format.json { head :no_content }
+    end
+  end
+
 
 def schedule_params
   params.require(:schedule).permit(:name, :dbinstanceid, :snapshotid, :snapshotname)
@@ -54,10 +66,7 @@ end
       access_key_id: ENV['AWS_API_KEY'],
       secret_access_key: ENV['AWS_SECRET_KEY']
   )
-
-
-  ::Skejuler::Aws::Rds::Mylog.start(rds)
-  # Rails.logger.info "My info log"
+  # ::Skejuler::Aws::Rds::Mylog.start(rds,)
 
   redirect_to root_path
 
