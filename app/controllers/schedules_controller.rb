@@ -56,7 +56,7 @@ class SchedulesController < ApplicationController
 
 
 def schedule_params
-  params.require(:schedule).permit(:name, :dbinstanceid, :snapshotid, :snapshotname)
+  params.require(:schedule).permit(:name, :remarks, :enabled, :from_date, :from_time, :repeat, :to_date, :to_time, :snapshotid, :snapshotname, :repeats_every_n_days, :repeats_every_n_weeks, :repeats_weekly_each_days_of_the_week_mask, :repeats_every_n_months, :repeats_monthly, :repeats_monthly_each_days_of_the_month_mask, :repeats_monthly_on_ordinals_mask, :repeats_monthly_on_days_of_the_week_mask, :repeats_every_n_years, :repeats_yearly_each_months_of_the_year_mask, :repeats_yearly_on, :repeats_yearly_on_ordinals_mask, :repeats_yearly_on_days_of_the_week_mask )
 end
 
   def rdsstart

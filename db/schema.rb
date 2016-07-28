@@ -10,20 +10,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160726233746) do
+ActiveRecord::Schema.define(version: 20160728075444) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "schedules", force: :cascade do |t|
     t.string   "name"
-    t.string   "dbinstanceid"
+    t.string   "remarks"
     t.string   "snapshotid"
     t.string   "snapshotname"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",                                  null: false
+    t.datetime "updated_at",                                  null: false
     t.time     "from_time"
     t.time     "to_time"
+    t.boolean  "enabled"
+    t.date     "from_date"
+    t.boolean  "repeat"
+    t.date     "to_date"
+    t.string   "occurs"
+    t.integer  "repeats_every_n_days"
+    t.integer  "repeats_every_n_weeks"
+    t.integer  "repeats_weekly_each_days_of_the_week_mask"
+    t.integer  "repeats_every_n_months"
+    t.integer  "repeats_monthly"
+    t.integer  "repeats_monthly_each_days_of_the_month_mask"
+    t.integer  "repeats_monthly_on_ordinals_mask"
+    t.integer  "repeats_monthly_on_days_of_the_week_mask"
+    t.integer  "repeats_every_n_years"
+    t.integer  "repeats_yearly_each_months_of_the_year_mask"
+    t.integer  "repeats_yearly_on"
+    t.integer  "repeats_yearly_on_ordinals_mask"
+    t.integer  "repeats_yearly_on_days_of_the_week_mask"
   end
 
   create_table "users", force: :cascade do |t|

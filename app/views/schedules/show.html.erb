@@ -6,8 +6,8 @@
 </p>
 
 <p>
-  <strong>dbinstanceid:</strong>
-  <%= @schedule.dbinstanceid %>
+  <strong>remarks:</strong>
+  <%= @schedule.remarks %>
 </p>
 
 <p>
@@ -18,6 +18,16 @@
 <p>
   <strong>snapshotname:</strong>
   <%= @schedule.snapshotname %>
+</p>
+
+<p>
+  <strong>From time:</strong>
+  <%= @schedule.from_time %>
+</p>
+
+<p>
+  <strong>To Time:</strong>
+  <%= @schedule.to_time %>
 </p>
 
 <%= link_to 'Edit', edit_schedule_path(@schedule) %> |

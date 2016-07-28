@@ -408,7 +408,7 @@ DEPENDENCIES
   bh
   binding_of_caller
   bootstrap (~> 4.0.0.alpha3)
-  bootstrap_form (~> 2.3.0)
+  bootstrap_form
   capistrano-rails
   capistrano-rvm
   capybara-webkit
