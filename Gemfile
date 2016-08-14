@@ -7,16 +7,15 @@ gem 'dotenv-rails', require: 'dotenv/rails-now'
 gem 'puma', '~> 3.0' # Use Puma as the app server
 gem 'sidekiq'
 gem 'sidekiq-cron', '~> 0.4.0'  # scheduled sidekiq jobs
-gem 'skejuler-aws', :path=> '/Users/hotas/Desktop/skejuler-aws'
-gem 'binding_of_caller'
-gem 'bootstrap_form'
-# gem 'sinatra', require: nil   # sidekiq WebUI is sinatra-based app
-
-# gem 'squeel'
-
+gem 'sinatra', require: nil   # sidekiq WebUI is sinatra-based app
 gem 'redis'
 gem 'redis-namespace'
-gem 'redis-rails'
+gem 'redis-rails', '~> 5.0'
+gem 'tether-rails'
+
+# gem 'skejuler-aws', git: 'git@bitbucket.org:cloudescent/skejuler-aws.git', branch: 'master'
+gem 'binding_of_caller'
+gem 'bootstrap_form'
 
 # asset pipeline
 gem 'sass-rails', '~> 5.0' # Use SCSS for stylesheets
@@ -48,6 +47,7 @@ gem 'devise-async'
 # for production
 gem 'lograge'
 
+gem 'rubysl-securerandom', '~> 2.0'
 group :development, :test do
   # debugging
   gem 'pry-rails'

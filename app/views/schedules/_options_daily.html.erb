@@ -1,0 +1,173 @@
+<script>
+  $(document).ready(function () {
+          $('.showButton').click(function () {
+              if ($(this).is(":checked")) {
+                  $(".targetDIV").show();
+                  $('#div' + $(this).attr('target')).show('slide');}
+              else {
+                  $(".targetDIV").hide();
+                  $('#div' + $(this).attr('target')).hide('slide');
+              }
+
+
+          });
+  });
+
+
+$(document).ready(function(){
+
+  $("#daily").click(function(){
+    $("#daily_options").show();
+    $("#weekly_options").hide();
+    $("#monthly_options").hide();
+    $("#yearly_options").hide();
+  });
+  $("#weekly").click(function(){
+    $("#daily_options").hide();
+    $("#weekly_options").show();
+    $("#monthly_options").hide();
+    $("#yearly_options").hide();
+  });
+  $("#monthly").click(function(){
+
+    $("#daily_options").hide();
+    $("#weekly_options").hide();
+    $("#monthly_options").show();
+    $("#yearly_options").hide();
+  });
+  $("#yearly").click(function(){
+    $("#daily_options").hide();
+    $("#weekly_options").hide();
+    $("#monthly_options").hide();
+    $("#yearly_options").show();
+  });
+});
+
+</script>
+
+
+
+
+
+<div class="form-inline">
+  <!--<input type="checkbox" class="showButton"  target="1">Repeat?</in>-->
+  <%= f.check_box :repeat, class: "showButton", target: "1" %>
+  <!--<tr>-->
+    <!--<th>Repeat Method</th>-->
+  <!--<td><%= f.radio_button :snapshotid,false,id: "repeatfalse",checked:"checked" %> No Repeatition</td>-->
+    <!--<td><%= f.radio_button :snapshotid,true,id: "repeattrue" %> Repeat</td>-->
+    <!--</tr>-->
+  <!--&lt;!&ndash;<input type="checkbox" class="showButton"  target="2">Button 2&ndash;&gt;-->
+  <!--&lt;!&ndash;<input type="checkbox" class="showButton"  target="3">Button 3&ndash;&gt;-->
+</div>
+<!--</br>-->
+<!--<div id="div1" class="targetDiv">Please Select the Schedule you want to repeat<br />-->
+  <!--</br>-->
+  <!--<select name="occurs">-->
+    <!--<option value="daily" class="showButton" target="4">Daily</option>-->
+    <!--<option value="weekly" class="showButton" target="5">Weekly</option>-->
+    <!--<option value="monthly" class="showButton" target="4">Monthly</option>-->
+    <!--<option value="yearly" class="showButton" target="4">Yearly</option>-->
+  <!--</select>-->
+  <!--&lt;!&ndash;<input type="checkbox" class="showButton" target="4">Daily&ndash;&gt;-->
+  <!--&lt;!&ndash;<input type="checkbox" class="showButton" target="5">Weekly&ndash;&gt;-->
+  <!--&lt;!&ndash;<input type="checkbox" class="showButton" target="6">Monthly&ndash;&gt;-->
+  <!--&lt;!&ndash;<input type="checkbox" class="showButton" target="7">Yearly&ndash;&gt;-->
+  <!--<div id="div4" class="targetDiv"></div>-->
+  <!--<div id="div5" class="targetDiv"><%= render partial: 'repeats_weekly_options', locals: {f: f}%>.</div>-->
+  <!--<div id="div6" class="targetDiv"><%= render partial: 'repeats_monthly_options', locals: {f: f}%></div>-->
+  <!--<div id="div7" class="targetDiv">Yearly schedule</div>-->
+<!--</div>-->
+<!--<div id="div2" class="targetDiv">Content of div 2.<br/>-->
+  <!--<button class="showButton" target="9">open 9</button>-->
+<!--</div>-->
+<!--<div id="div3" class="targetDiv">Content of div 3.<br/>-->
+  <!--&lt;!&ndash;<button class="showButton" target="6">open 6</button>&ndash;&gt;-->
+  <!--&lt;!&ndash;<div id="div6" class="targetDiv">Content of div 6.<br />&ndash;&gt;-->
+    <!--<button class="showButton" target="9">open 9</button>-->
+    <!--<button class="showButton" target="10">open 10</button>-->
+    <!--<div id="div9" class="targetDiv">Content of div 9.<br/>-->
+    <!--</div>-->
+  <!--</div>-->
+<!--</div>-->
+<!--<hr />-->
+
+<style>
+.targetDiv {
+display: none;
+}
+#daily_options {
+  display: none;
+}
+#weekly_options {
+  display: none;
+}
+#monthly_options {
+  display: none;
+}
+#yearly_options {
+  display: none;
+}
+</style>
+
+
+<div id="div1" class="targetDiv">
+  <div class="form-inline">
+<tr>
+  <td ><%= f.radio_button :occurs,"daily",id: "daily" %>Daily</td>
+  <td ><%= f.radio_button :occurs,"weekly",id: "weekly" %>Weekly</td>
+  <td ><%= f.radio_button :occurs,"monthly",id: "monthly" %>Monthly</td>
+  <td ><%= f.radio_button :occurs,"yearly",id: "yearly" %>Yearly</td></td>
+</tr>
+  </div>
+<div id="daily_options" >
+  <%= f.number_field :repeatdays%>
+</div>
+
+
+<div id="weekly_options">
+  <%= f.number_field :repeatweek  %>
+  <!--<td ><%= f.check_box :weekdays, {}, "Sunday"%>Sunday</td>-->
+  <!--<td ><%= f.check_box :weekdays, {},"Monday" %>Monday</td>-->
+  <!--<td ><%= f.check_box :weekdays, {},"Tuesday" %>Tuesday</td>-->
+  <!--<td ><%= f.check_box :weekdays, {},"Wednesday"%>Wednesday</td></td>-->
+  <%= f.select :weekdays, Schedule::DaysOfWeeks %>
+</div>
+
+  <div id="monthly_options" >
+    <%= f.number_field :repeatmonth %>
+    <%= f.select :monthdays, Schedule::DaysOfTheMonth%>
+  </div>
+
+  <div id="yearly_options" >
+    <h5>Yearly Options</h5>
+  </div>
+</br>
+  </div>
+
+
+  <!-- -#= f.check_box :repeat   #:input_html => { :id => "sd"}-->
+  <!--#revision{:style => "display: none"}-->
+  <!-- -#= render partial: 'repeats_weekly', locals: {f: f}-->
+  <!-- -#= f.select :occurs, Schedule::RepeatsOptions-->
+  <!--#event_daily{:style => "display: none"}-->
+  <!-- -#= render partial: 'repeats_daily_options', locals: {f: f}-->
+  <!--#event_weekly{:style => "display: none"}-->
+  <!-- -#= f.select :snapshotname, Schedule::DaysOfWeeks-->
+  <!-- -#= render partial: 'repeats_weekly_options', locals: {f: f}-->
+  <!--#event_monthly-->
+  <!-- -#= render partial: 'repeats_monthly_options', locals: {f: f}-->
+  <!--#event_yearly{:style => "display: none"}-->
+  <!-- -#= render partial: 'repeats_yearly_options', locals: {f: f}-->
+  <!-- -#=f.text_field :repeats_every_X_month, {style: 'width:auto;'}-->
+  <!-- -#%section#dvPassport{:style => "display: none"}-->
+  <!-- -#  = f.text_field :name-->
+
+
+
+  <!-- -#= f.date_field :from_date, :placeholder => "MM/DD/YYYY", :input_html => {:class => "datepicker date-picker"}, :label => "Select Date"-->
+  <!-- -#= f.date_field :from_date, :placeholder => "MM/DD/YYYY", :input_html => {:class => "datepicker date-picker"}, :label => "Select Date"-->
+  <!--.input-append.bootstrap-timepicker-->
+  <!-- -#= f.time_select :from_time, {default: Time.now}, :input_html => { :id => "starts_at", :class => "input-append bootstrap-timepicker"}, :label => " Select Time "-->
+  <!-- -#= f.time_zone_select :from_time, {:minute_step => 15}, {style: 'width:auto;'}-->
+  <!-- -#= f.date_select :from_date, {}, {style: 'width:auto;'}-->

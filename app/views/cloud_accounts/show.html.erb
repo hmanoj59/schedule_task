@@ -1,0 +1,38 @@
+
+
+<%= render(:partial => "backtolist") %>
+
+<h2>Show Cloud Account</h2>
+
+<table style="width:50%">
+<tr>
+  <th>Name</th>
+  <td><%= @cloud_account.name %></td>
+</tr>
+<tr>
+  <th>Cloud Provider</th>
+  <td><%= @cloud_account.cloud_provider %></td>
+</tr>
+<tr>
+  <th>Partition</th>
+  <td><%= @cloud_account.aws_cloud_partition %></td>
+</tr>
+<tr>
+  <th>Access Method</th>
+  <td><%= @cloud_account.access_method %></td>
+</tr>
+<tr>
+  <th>External ID</th>
+  <td><%= @cloud_account.external_id %></td>
+</tr>
+<tr>
+  <th>Created</th>
+  <td><%= @cloud_account.created_at %></td>
+</tr>
+<tr>
+  <th>Updated</th>
+  <td><%= @cloud_account.updated_at %></td>
+</tr>
+
+
+</table>

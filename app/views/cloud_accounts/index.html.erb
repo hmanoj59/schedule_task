@@ -1,0 +1,32 @@
+
+
+
+<h2>My Cloud Accounts </h2>
+
+<%= link_to("Add New Cloud Account", {:action => 'new'}, :class=>'action new')    %>
+
+<table style="width:60%">
+  <tr>
+    <th>Id</th>
+    <th>Name </th>
+    <th>Cloud </th>
+    <th>Partition </th>
+    <th>Access Method </th>
+    <th>Actions</th>
+  </tr>
+  <% @cloud_accounts.each do |cloud_account| %>
+  <tr>
+    <td><%= cloud_account.id  %></td>
+    <td><%= cloud_account.name  %></td>
+    <td><%= cloud_account.cloud_provider %></td>
+    <td><%= cloud_account.aws_cloud_partition %></td>
+    <td><%= cloud_account.access_method %></td>
+    <td>
+       <%= link_to("Show", {:action=>'show',:id=>cloud_account.id}, :class=> 'action show') %>
+       <%= link_to("Edit", {:action=>'edit',:id=>cloud_account.id}, :class=> 'action edit') %>
+       <%= link_to("Delete", {:action=>'delete', :id=>cloud_account.id}, :class=> 'action delete') %>
+    </td>
+
+  </tr>
+  <% end %>
+</table>

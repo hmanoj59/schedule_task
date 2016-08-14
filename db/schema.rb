@@ -10,38 +10,53 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160728075444) do
+ActiveRecord::Schema.define(version: 20160812235958) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "cloud_accounts", force: :cascade do |t|
+    t.string   "access_key_id"
+    t.string   "cloud_provider"
+    t.string   "name"
+    t.string   "iam_role_arn"
+    t.string   "secret_access_key"
+    t.string   "access_method"
+    t.string   "aws_cloud_partition"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.string   "external_id"
+  end
+
   create_table "schedules", force: :cascade do |t|
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
     t.string   "name"
     t.string   "remarks"
     t.string   "snapshotid"
     t.string   "snapshotname"
-    t.datetime "created_at",                                  null: false
-    t.datetime "updated_at",                                  null: false
-    t.time     "from_time"
     t.time     "to_time"
     t.boolean  "enabled"
     t.date     "from_date"
     t.boolean  "repeat"
     t.date     "to_date"
     t.string   "occurs"
-    t.integer  "repeats_every_n_days"
-    t.integer  "repeats_every_n_weeks"
-    t.integer  "repeats_weekly_each_days_of_the_week_mask"
-    t.integer  "repeats_every_n_months"
-    t.integer  "repeats_monthly"
-    t.integer  "repeats_monthly_each_days_of_the_month_mask"
+    t.integer  "repeatdays"
+    t.integer  "repeatweek"
+    t.integer  "repeatmonth"
+    t.integer  "weekdays"
+    t.string   "repeats_monthly"
+    t.string   "monthdays"
     t.integer  "repeats_monthly_on_ordinals_mask"
     t.integer  "repeats_monthly_on_days_of_the_week_mask"
-    t.integer  "repeats_every_n_years"
-    t.integer  "repeats_yearly_each_months_of_the_year_mask"
-    t.integer  "repeats_yearly_on"
-    t.integer  "repeats_yearly_on_ordinals_mask"
-    t.integer  "repeats_yearly_on_days_of_the_week_mask"
+    t.string   "cloud"
+    t.string   "region"
+    t.string   "action"
+    t.string   "instanceid"
+    t.time     "from_time"
+    t.datetime "dat_tme"
+    t.string   "timezone"
+    t.integer  "user_id"
   end
 
   create_table "users", force: :cascade do |t|

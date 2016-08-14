@@ -12,24 +12,24 @@ class EventInstance
     # line 5 = Event repeats indefinitely, then all we care about is that it has started at somepoint in the last
     results = Event.where{
       (
-      (repeats == 'never') &
+      (occurs == 'never') &
           (from_date >= begin_date) &
           (from_date <= end_date)
       ) | (
-      (repeats == 'never') &
+      (occurs == 'never') &
           (to_date >= begin_date) &
           (to_date <= end_date)
       ) | (
-      (repeats == 'never') &
+      (occurs == 'never') &
           (from_date <= begin_date) &
           (to_date >= end_date)
       ) | (
-      (repeats != 'never') &
+      (occurs != 'never') &
           (from_date <= end_date) &
           (repeat_ends == 'on') &
           (repeat_ends_on >= begin_date)
       ) | (
-      (repeats != 'never') &
+      (occurs != 'never') &
           (repeat_ends == 'never') &
           (from_date <= end_date)
       )
@@ -40,7 +40,7 @@ class EventInstance
         i.title = event.name
         i.start = date
         i.end = date + event.duration
-        i.allDay = event.is_all_day
+        i.allDay = event.enabled
         i.event_id = event.id
         i
       }

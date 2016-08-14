@@ -1,4 +1,5 @@
-require '/Users/hotas/Desktop/skejuler-aws/lib/skejuler/aws/rds.rb'
+# require '../skejuler-aws/lib/skejuler/aws/rds.rb'
+include IceCubeMethods
 
 
 class SchedulesController < ApplicationController
@@ -12,31 +13,59 @@ class SchedulesController < ApplicationController
   def show
     @schedule = Schedule.find(params[:id])
 
+
   end
 
   def new
-    @schedule = Schedule.new
+    @schedule = current_user.schedules.build #Schedule.new
   end
 
   def create
-    @schedule = Schedule.new(schedule_params)
-
+    @schedule = current_user.schedules.build(schedule_params)
+    # @schedule.user = User.first
     respond_to do |format|
       if @schedule.save
+
+
+
         format.html { redirect_to @schedule, notice: 'Schedule was successfully created.' }
 
-        rdsstart and return
-        format.json { render :show, status: :created, location: @schedule }
+        action_value = @schedule.action
+
+        sch_options
+
+        case action_value
+          when "start_rds"
+            puts "starting rds"
+            rdsstart
+          when "stop_rds"
+            puts "stopping rds"
+            rdsstop
+          when "start_ec2"
+            puts "Starting Ec2"
+            ec2start
+          when "stop_ec2"
+            puts "Stopping Ec2"
+            ec2stop
+          when "none"
+          format.json { render :show, status: :created, location: @schedule }
       else
         format.html { render :new }
         format.json { render json: @schedule.errors, status: :unprocessable_entity }
       end
     end
+    end
+    end
+
+  def edit
+      @schedule=Schedule.find(params[:id])
   end
+
 
   def update
     respond_to do |format|
-      if @dchedule.update(contact_params)
+      @schedule=Schedule.find(params[:id])
+      if @schedule.update(schedule_params)
         format.html { redirect_to @schedule, notice: 'Schedule was successfully updated.' }
         format.json { render :show, status: :ok, location: @schedule }
       else
@@ -47,17 +76,29 @@ class SchedulesController < ApplicationController
   end
 
   def destroy
-    @schedule.destroy
+    # @schedule.destroy
+    @status_update = Schedule.find(params[:id])
+    if @status_update.present?
+      @status_update.destroy
+    end
+    flash[:notice] = "Schedule was successfully Deleted"
     respond_to do |format|
       format.html { redirect_to schedules_url, notice: 'Schedule was destroyed.' }
       format.json { head :no_content }
+    # end
+    # redirect_to root_path
     end
-  end
+    end
 
 
 def schedule_params
-  params.require(:schedule).permit(:name, :remarks, :enabled, :from_date, :from_time, :repeat, :to_date, :to_time, :snapshotid, :snapshotname, :repeats_every_n_days, :repeats_every_n_weeks, :repeats_weekly_each_days_of_the_week_mask, :repeats_every_n_months, :repeats_monthly, :repeats_monthly_each_days_of_the_month_mask, :repeats_monthly_on_ordinals_mask, :repeats_monthly_on_days_of_the_week_mask, :repeats_every_n_years, :repeats_yearly_each_months_of_the_year_mask, :repeats_yearly_on, :repeats_yearly_on_ordinals_mask, :repeats_yearly_on_days_of_the_week_mask )
+  params.require(:schedule).permit(:name, :remarks, :enabled, :dat_tme, :from_date, :from_time, :repeat, :occurs, :snapshotid, :snapshotname, :timezone, :repeatdays, :repeatweek, :weekdays,  :repeatmonth, :monthdays, :repeats_every_X_hour, :repeats_every_X_week, :cloud, :region, :action, :instanceid)
 end
+
+
+
+
+
 
   def rdsstart
 
@@ -68,7 +109,7 @@ end
   )
   # ::Skejuler::Aws::Rds::Mylog.start(rds,)
 
-  redirect_to root_path
+  # redirect_to root_path and return
 
 end
 
@@ -106,5 +147,35 @@ def ec2stop
   redirect_to root_path
 end
 
-end
 
+  def sch_options
+
+    if @schedule.repeat != false
+      schedule = IceCube::Schedule.new(@schedule.dat_tme)
+    end
+      if @schedule.repeat == true
+        schedule = IceCube::Schedule.new(@schedule.dat_tme)
+        if @schedule.occurs == "daily"
+          schedule.add_recurrence_rule IceCube::Rule.daily(@schedule.repeatdays)
+          puts "schedules are"
+          puts schedule.first(10)
+        end
+        if @schedule.occurs == "weekly"
+          if @schedule.weekdays == 8
+            schedule.add_recurrence_rule IceCube::Rule.weekly(@schedule.repeatweek)
+        end
+        if @schedule.weekdays != 8
+          schedule.add_recurrence_rule IceCube::Rule.weekly(@schedule.repeatweek).day(@schedule.weekdays)
+        end
+          puts "schedules are"
+          puts schedule.first(10)
+        end
+        if @schedule.occurs == "monthly"
+          schedule.add_recurrence_rule IceCube::Rule.monthly(@schedule.repeatmonth)
+          puts "schedules are"
+          puts schedule.first(10)
+        end
+
+    end
+  end
+end

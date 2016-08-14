@@ -1,0 +1,11 @@
+
+
+<%= render(:partial => "backtolist") %>
+<% image_tag('add_icon.png' , :size =>'11x11',:alt =>'+')   %>
+<h2>Create New Cloud Account </h2>
+
+<%= form_for(:cloud_account, :url=>{:action => 'create'}) do |f| %>
+
+<%= render(:partial => "form", :locals =>{:f=>f}) %>
+
+<% end %>

@@ -1,13 +1,3 @@
 %h1 Welcome to #{ENV['APPNAME']}
 %h2 #{ENV['APPSLOGAN']}
-
 %p #{ENV['APPDESCRIPTION']}
-
-- unless current_user
-  %p Please login to continue... or FREE Sign up to get started
-
-  = link_to new_user_session_path do
-    %button.btn.btn-secondary.btn-large Login
-
-  = link_to new_user_registration_path do
-    %button.btn.btn-primary.btn-large Sign Up

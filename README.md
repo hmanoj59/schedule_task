@@ -22,3 +22,11 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+*before you run the app. make sure you run this script on your database
+
+CREATE database skejuler_dev;
+
+CREATE USER pguser  WITH password 'password';
+
+GRANT ALL ON database skejuler_dev TO pguser;

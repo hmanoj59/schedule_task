@@ -1,0 +1,88 @@
+
+<script>
+$(document).ready(function(){
+
+  $("#access_key").hide();
+    $("#key").click(function(){
+        $("#iam_role").hide();
+        $("#access_key").show();
+
+    });
+    $("#iam").click(function(){
+        $("#iam_role").show();
+        $("#access_key").hide();
+    });
+});
+</script>
+
+<style>
+
+.border {
+  border-width:1px;
+  border-style: solid;
+  border-color: black;
+
+
+}
+</style>
+
+
+
+<%= render(:partial => "backtolist") %>
+<h2>Update Cloud Account </h2>
+
+<%= form_for(:cloud_account, :url=>{:action => 'update',:id =>@cloud_account.id}) do |f| %>
+<table>
+<tr>
+  <th>* Name</th>
+
+  <td><%= f.text_field(:name) %></td>
+</tr>
+<tr>
+  <th>* Cloud Provider</th>
+
+  <td><%= f.select :cloud_provider, ['AWS']%></td>
+</tr>
+<tr>
+  <tr>
+    <th>* AWS Cloud Partition</th>
+
+    <td><%= f.select :aws_cloud_partition, ['Global AWS','AWS China','AWS Gov']%></td>
+  </tr>
+
+
+  <tr>
+    <th>* Access Method</th>
+    <td ><%= f.radio_button :access_method,"IAM ROLE",id: "iam",checked:"checked" %>IAM</td>
+    <td ><%= f.radio_button :access_method,"ACCESS KEY",id: "key" %>ACCESS KEY</br></td>
+    <!-- <td><%= f.text_field(:access_method) %></td> -->
+  </tr>
+
+</table>
+
+<div id="iam_role" >
+<table>
+
+  <th>IAM Role</th>
+  <tr><td>ccount ID <%= ENV['AWS_ACCOUNT_NUMBER'] %></td></tr>
+  <tr><td>External ID <%=@cloud_account.external_id %></td></tr>
+  <tr><td>IAM Role ARN<%= f.text_field(:iam_role_arn) %></td></tr>
+
+</table>
+</div>
+
+
+<hr>
+  <div id="access_key">
+    <tr >
+      <th>Access Key ID:</th>
+      <td > <%= f.text_field(:access_key_id) %> </td>
+    </tr>
+    <tr >
+      <th>Secret Access Key:</th>
+      <td > <%= f.text_field(:secret_access_key) %> </td>
+    </tr>
+  </div>
+
+
+<% end %>

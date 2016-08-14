@@ -8,7 +8,7 @@
           = check_box_tag "event[repeats_yearly_each_months_of_the_year][#{month_of_the_year}]", month_of_the_year, f.object.repeats_yearly_each_months_of_the_year.include?(month_of_the_year), {:name => "event[repeats_yearly_each_months_of_the_year][]"}
           = month_of_the_year.humanize
       = hidden_field_tag "event[repeats_yearly_each_months_of_the_year][]", ""
-  = f.check_box :repeats_yearly_on
+  = f.check_box :repeat
   #event_repeats_yearly_on_options.control-group
     %label.control-label On the
     .controls

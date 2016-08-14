@@ -1,11 +1,9 @@
 # require 'ice_cube_methods'
 
-# class Schedule < ApplicationRecord::Base
-class Schedule < ActiveRecord::Base
+class Schedule < ApplicationRecord
+# class Schedule < ActiveRecord::Base
+
+  belongs_to :user
 
 
-  include IceCubeMethods
-
-  validates :name, :presence => true
-  # attr_accessible :remarks, :name
 end

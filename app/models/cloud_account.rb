@@ -1,0 +1,2 @@
+class CloudAccount < ApplicationRecord
+end

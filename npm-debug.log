@@ -1,0 +1,261 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   '--save-dev',
+1 verbose cli   'grunt-{ca,-m,comment',
+1 verbose cli   'out',
+1 verbose cli   'all',
+1 verbose cli   'skejuler-aws',
+1 verbose cli   'for',
+1 verbose cli   'now}' ]
+2 info using npm@3.5.4
+3 info using node@v4.2.1
+4 silly loadCurrentTree Starting
+5 silly install loadCurrentTree
+6 silly install readLocalPackageData
+7 silly fetchPackageMetaData grunt-{ca,-m,comment
+8 silly fetchPackageMetaData out
+9 silly fetchPackageMetaData all
+10 silly fetchPackageMetaData skejuler-aws
+11 silly fetchPackageMetaData for
+12 silly fetchPackageMetaData now}
+13 silly fetchOtherPackageData grunt-{ca,-m,comment
+14 silly cache add args [ 'grunt-{ca,-m,comment', null ]
+15 verbose cache add spec grunt-{ca,-m,comment
+16 silly fetchNamedPackageData out
+17 silly mapToRegistry name out
+18 silly mapToRegistry using default registry
+19 silly mapToRegistry registry https://registry.npmjs.org/
+20 silly mapToRegistry uri https://registry.npmjs.org/out
+21 silly fetchNamedPackageData all
+22 silly mapToRegistry name all
+23 silly mapToRegistry using default registry
+24 silly mapToRegistry registry https://registry.npmjs.org/
+25 silly mapToRegistry uri https://registry.npmjs.org/all
+26 silly fetchNamedPackageData skejuler-aws
+27 silly mapToRegistry name skejuler-aws
+28 silly mapToRegistry using default registry
+29 silly mapToRegistry registry https://registry.npmjs.org/
+30 silly mapToRegistry uri https://registry.npmjs.org/skejuler-aws
+31 silly fetchNamedPackageData for
+32 silly mapToRegistry name for
+33 silly mapToRegistry using default registry
+34 silly mapToRegistry registry https://registry.npmjs.org/
+35 silly mapToRegistry uri https://registry.npmjs.org/for
+36 silly fetchOtherPackageData now}
+37 silly cache add args [ 'now}', null ]
+38 verbose cache add spec now}
+39 silly cache add parsed spec Result {
+39 silly cache add   raw: 'grunt-{ca,-m,comment',
+39 silly cache add   scope: null,
+39 silly cache add   name: null,
+39 silly cache add   rawSpec: 'grunt-{ca,-m,comment',
+39 silly cache add   spec: '/Users/derekso/Projects/cloudescent/skejuler/grunt-{ca,-m,comment',
+39 silly cache add   type: 'local' }
+40 verbose request uri https://registry.npmjs.org/out
+41 verbose request no auth needed
+42 info attempt registry request try #1 at 2:32:15 PM
+43 verbose request id 21f86eea0dff0ca8
+44 http request GET https://registry.npmjs.org/out
+45 verbose request uri https://registry.npmjs.org/all
+46 verbose request no auth needed
+47 info attempt registry request try #1 at 2:32:15 PM
+48 http request GET https://registry.npmjs.org/all
+49 verbose request uri https://registry.npmjs.org/skejuler-aws
+50 verbose request no auth needed
+51 info attempt registry request try #1 at 2:32:15 PM
+52 http request GET https://registry.npmjs.org/skejuler-aws
+53 verbose request uri https://registry.npmjs.org/for
+54 verbose request no auth needed
+55 info attempt registry request try #1 at 2:32:15 PM
+56 http request GET https://registry.npmjs.org/for
+57 silly cache add parsed spec Result {
+57 silly cache add   raw: 'now}',
+57 silly cache add   scope: null,
+57 silly cache add   name: null,
+57 silly cache add   rawSpec: 'now}',
+57 silly cache add   spec: '/Users/derekso/Projects/cloudescent/skejuler/now}',
+57 silly cache add   type: 'local' }
+58 error addLocal Could not install /Users/derekso/Projects/cloudescent/skejuler/grunt-{ca,-m,comment
+59 silly fetchPackageMetaData Error: ENOENT: no such file or directory, open '/Users/derekso/Projects/cloudescent/skejuler/grunt-{ca,-m,comment'
+59 silly fetchPackageMetaData     at Error (native)
+59 silly fetchPackageMetaData  error for grunt-{ca,-m,comment { [Error: ENOENT: no such file or directory, open '/Users/derekso/Projects/cloudescent/skejuler/grunt-{ca,-m,comment']
+59 silly fetchPackageMetaData   errno: -2,
+59 silly fetchPackageMetaData   code: 'ENOENT',
+59 silly fetchPackageMetaData   syscall: 'open',
+59 silly fetchPackageMetaData   path: '/Users/derekso/Projects/cloudescent/skejuler/grunt-{ca,-m,comment' }
+60 error addLocal Could not install /Users/derekso/Projects/cloudescent/skejuler/now}
+61 silly fetchPackageMetaData Error: ENOENT: no such file or directory, open '/Users/derekso/Projects/cloudescent/skejuler/now}'
+61 silly fetchPackageMetaData     at Error (native)
+61 silly fetchPackageMetaData  error for now} { [Error: ENOENT: no such file or directory, open '/Users/derekso/Projects/cloudescent/skejuler/now}']
+61 silly fetchPackageMetaData   errno: -2,
+61 silly fetchPackageMetaData   code: 'ENOENT',
+61 silly fetchPackageMetaData   syscall: 'open',
+61 silly fetchPackageMetaData   path: '/Users/derekso/Projects/cloudescent/skejuler/now}' }
+62 http 200 https://registry.npmjs.org/for
+63 verbose headers { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+63 verbose headers   etag: '"96JMP6KL94KLLYPO4SKHA5580"',
+63 verbose headers   'content-type': 'application/json',
+63 verbose headers   'content-encoding': 'gzip',
+63 verbose headers   'cache-control': 'max-age=300',
+63 verbose headers   'content-length': '2209',
+63 verbose headers   'accept-ranges': 'bytes',
+63 verbose headers   date: 'Fri, 05 Aug 2016 06:32:15 GMT',
+63 verbose headers   via: '1.1 varnish',
+63 verbose headers   age: '0',
+63 verbose headers   connection: 'keep-alive',
+63 verbose headers   'x-served-by': 'cache-hkg6820-HKG',
+63 verbose headers   'x-cache': 'MISS',
+63 verbose headers   'x-cache-hits': '0',
+63 verbose headers   'x-timer': 'S1470378735.750397,VS0,VE199',
+63 verbose headers   vary: 'Accept-Encoding' }
+64 silly get cb [ 200,
+64 silly get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+64 silly get     etag: '"96JMP6KL94KLLYPO4SKHA5580"',
+64 silly get     'content-type': 'application/json',
+64 silly get     'content-encoding': 'gzip',
+64 silly get     'cache-control': 'max-age=300',
+64 silly get     'content-length': '2209',
+64 silly get     'accept-ranges': 'bytes',
+64 silly get     date: 'Fri, 05 Aug 2016 06:32:15 GMT',
+64 silly get     via: '1.1 varnish',
+64 silly get     age: '0',
+64 silly get     connection: 'keep-alive',
+64 silly get     'x-served-by': 'cache-hkg6820-HKG',
+64 silly get     'x-cache': 'MISS',
+64 silly get     'x-cache-hits': '0',
+64 silly get     'x-timer': 'S1470378735.750397,VS0,VE199',
+64 silly get     vary: 'Accept-Encoding' } ]
+65 verbose get saving for to /Users/derekso/.npm/registry.npmjs.org/for/.cache.json
+66 http 404 https://registry.npmjs.org/skejuler-aws
+67 verbose headers { 'content-type': 'application/json',
+67 verbose headers   'cache-control': 'max-age=0',
+67 verbose headers   'content-length': '2',
+67 verbose headers   'accept-ranges': 'bytes',
+67 verbose headers   date: 'Fri, 05 Aug 2016 06:32:15 GMT',
+67 verbose headers   via: '1.1 varnish',
+67 verbose headers   age: '0',
+67 verbose headers   connection: 'keep-alive',
+67 verbose headers   'x-served-by': 'cache-hkg6821-HKG',
+67 verbose headers   'x-cache': 'MISS',
+67 verbose headers   'x-cache-hits': '0',
+67 verbose headers   'x-timer': 'S1470378735.753281,VS0,VE202',
+67 verbose headers   vary: 'Accept-Encoding' }
+68 silly get cb [ 404,
+68 silly get   { 'content-type': 'application/json',
+68 silly get     'cache-control': 'max-age=0',
+68 silly get     'content-length': '2',
+68 silly get     'accept-ranges': 'bytes',
+68 silly get     date: 'Fri, 05 Aug 2016 06:32:15 GMT',
+68 silly get     via: '1.1 varnish',
+68 silly get     age: '0',
+68 silly get     connection: 'keep-alive',
+68 silly get     'x-served-by': 'cache-hkg6821-HKG',
+68 silly get     'x-cache': 'MISS',
+68 silly get     'x-cache-hits': '0',
+68 silly get     'x-timer': 'S1470378735.753281,VS0,VE202',
+68 silly get     vary: 'Accept-Encoding' } ]
+69 silly fetchPackageMetaData Error: Registry returned 404 for GET on https://registry.npmjs.org/skejuler-aws
+69 silly fetchPackageMetaData     at makeError (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:264:12)
+69 silly fetchPackageMetaData     at CachingRegistryClient.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:242:14)
+69 silly fetchPackageMetaData     at Request._callback (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:172:14)
+69 silly fetchPackageMetaData     at Request.self.callback (/usr/local/lib/node_modules/npm/node_modules/request/request.js:198:22)
+69 silly fetchPackageMetaData     at emitTwo (events.js:87:13)
+69 silly fetchPackageMetaData     at Request.emit (events.js:172:7)
+69 silly fetchPackageMetaData     at Request.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1035:10)
+69 silly fetchPackageMetaData     at emitOne (events.js:82:20)
+69 silly fetchPackageMetaData     at Request.emit (events.js:169:7)
+69 silly fetchPackageMetaData     at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:962:12)
+69 silly fetchPackageMetaData  error for skejuler-aws { [Error: Registry returned 404 for GET on https://registry.npmjs.org/skejuler-aws] pkgid: 'skejuler-aws', statusCode: 404, code: 'E404' }
+70 http 200 https://registry.npmjs.org/out
+71 verbose headers { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+71 verbose headers   etag: '"EA22Q9CHBTI3ZQC144WRW79PG"',
+71 verbose headers   'content-type': 'application/json',
+71 verbose headers   'content-encoding': 'gzip',
+71 verbose headers   'cache-control': 'max-age=300',
+71 verbose headers   'content-length': '3143',
+71 verbose headers   'accept-ranges': 'bytes',
+71 verbose headers   date: 'Fri, 05 Aug 2016 06:32:16 GMT',
+71 verbose headers   via: '1.1 varnish',
+71 verbose headers   age: '0',
+71 verbose headers   connection: 'keep-alive',
+71 verbose headers   'x-served-by': 'cache-hkg6823-HKG',
+71 verbose headers   'x-cache': 'MISS',
+71 verbose headers   'x-cache-hits': '0',
+71 verbose headers   'x-timer': 'S1470378735.754792,VS0,VE804',
+71 verbose headers   vary: 'Accept-Encoding' }
+72 silly get cb [ 200,
+72 silly get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+72 silly get     etag: '"EA22Q9CHBTI3ZQC144WRW79PG"',
+72 silly get     'content-type': 'application/json',
+72 silly get     'content-encoding': 'gzip',
+72 silly get     'cache-control': 'max-age=300',
+72 silly get     'content-length': '3143',
+72 silly get     'accept-ranges': 'bytes',
+72 silly get     date: 'Fri, 05 Aug 2016 06:32:16 GMT',
+72 silly get     via: '1.1 varnish',
+72 silly get     age: '0',
+72 silly get     connection: 'keep-alive',
+72 silly get     'x-served-by': 'cache-hkg6823-HKG',
+72 silly get     'x-cache': 'MISS',
+72 silly get     'x-cache-hits': '0',
+72 silly get     'x-timer': 'S1470378735.754792,VS0,VE804',
+72 silly get     vary: 'Accept-Encoding' } ]
+73 verbose get saving out to /Users/derekso/.npm/registry.npmjs.org/out/.cache.json
+74 http 200 https://registry.npmjs.org/all
+75 verbose headers { server: 'CouchDB/1.6.1 (Erlang OTP/R16B03)',
+75 verbose headers   etag: '"COUACM3O6RPET3ADVV5KQWAXC"',
+75 verbose headers   'content-type': 'application/json',
+75 verbose headers   'content-encoding': 'gzip',
+75 verbose headers   'cache-control': 'max-age=300',
+75 verbose headers   'content-length': '796',
+75 verbose headers   'accept-ranges': 'bytes',
+75 verbose headers   date: 'Fri, 05 Aug 2016 06:32:16 GMT',
+75 verbose headers   via: '1.1 varnish',
+75 verbose headers   age: '0',
+75 verbose headers   connection: 'keep-alive',
+75 verbose headers   'x-served-by': 'cache-hkg6821-HKG',
+75 verbose headers   'x-cache': 'MISS',
+75 verbose headers   'x-cache-hits': '0',
+75 verbose headers   'x-timer': 'S1470378735.750702,VS0,VE897',
+75 verbose headers   vary: 'Accept-Encoding' }
+76 silly get cb [ 200,
+76 silly get   { server: 'CouchDB/1.6.1 (Erlang OTP/R16B03)',
+76 silly get     etag: '"COUACM3O6RPET3ADVV5KQWAXC"',
+76 silly get     'content-type': 'application/json',
+76 silly get     'content-encoding': 'gzip',
+76 silly get     'cache-control': 'max-age=300',
+76 silly get     'content-length': '796',
+76 silly get     'accept-ranges': 'bytes',
+76 silly get     date: 'Fri, 05 Aug 2016 06:32:16 GMT',
+76 silly get     via: '1.1 varnish',
+76 silly get     age: '0',
+76 silly get     connection: 'keep-alive',
+76 silly get     'x-served-by': 'cache-hkg6821-HKG',
+76 silly get     'x-cache': 'MISS',
+76 silly get     'x-cache-hits': '0',
+76 silly get     'x-timer': 'S1470378735.750702,VS0,VE897',
+76 silly get     vary: 'Accept-Encoding' } ]
+77 verbose get saving all to /Users/derekso/.npm/registry.npmjs.org/all/.cache.json
+78 silly rollbackFailedOptional Starting
+79 silly rollbackFailedOptional Finishing
+80 silly runTopLevelLifecycles Starting
+81 silly runTopLevelLifecycles Finishing
+82 silly install printInstalled
+83 verbose stack Error: ENOENT: no such file or directory, open '/Users/derekso/Projects/cloudescent/skejuler/grunt-{ca,-m,comment'
+83 verbose stack     at Error (native)
+84 verbose cwd /Users/derekso/Projects/cloudescent/skejuler
+85 error Darwin 15.6.0
+86 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "install" "--save-dev" "grunt-{ca,-m,comment" "out" "all" "skejuler-aws" "for" "now}"
+87 error node v4.2.1
+88 error npm  v3.5.4
+89 error path /Users/derekso/Projects/cloudescent/skejuler/grunt-{ca,-m,comment
+90 error code ENOENT
+91 error errno -2
+92 error syscall open
+93 error enoent ENOENT: no such file or directory, open '/Users/derekso/Projects/cloudescent/skejuler/grunt-{ca,-m,comment'
+94 error enoent ENOENT: no such file or directory, open '/Users/derekso/Projects/cloudescent/skejuler/grunt-{ca,-m,comment'
+94 error enoent This is most likely not a problem with npm itself
+94 error enoent and is related to npm not being able to find a file.
+95 verbose exit [ -2, true ]

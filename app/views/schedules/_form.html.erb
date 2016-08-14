@@ -1,0 +1,47 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://www.atlasestateagents.co.uk/javascript/tether.min.js"></script>
+<%= bootstrap_form_for schedule, html: {class: 'form-horizontal', novalidate: 'novalidate'} do |f| %>
+  <div class="row">
+    <div class="span6">
+      <%= f.text_field :name, class: 'span4' %>
+      <%= f.text_field :remarks, class: 'span4' %>
+      <%= f.check_box :enabled, {checked: true} %>
+      <p>Schedule</p>
+    <div class="form-inline">
+      <%= f.datetime_select :dat_tme, {default: Time.now} %>
+        <div class="form-inline">
+        <%= f.time_zone_select :timezone %>
+        </div>
+    <hr style="width: 100%; color: black; height: 1px; background-color:black;"/>
+    </div>
+    </div>
+    <div class="span6">
+      <%= render partial: 'options_daily', locals: {f: f} %>
+    </div>
+    <div class="span6">
+      <%= f.select :cloud, Schedule::CloudOptions %>
+      <%= f.select :region, Schedule::RegionOptions %>
+    </div>
+    <div class="span6">
+      <%= f.select :action, Schedule::ActionOptions %>
+      <%= f.text_field :instanceid, class: 'span4' %>
+    </div>
+    <hr style="width: 100%; color: black; height: 1px; background-color:black;"/>
+  </div>
+  <div class="form-actions">
+    <%= f.submit 'Schedule',class: 'btn btn-primary btn-md' %>
+  </div>
+<% end %>
+
+<% content_for :first_styles do %>
+    <css>
+
+      #occurs_options {display:none;}
+      #repeats_daily_options {display:none;}
+      #repeats_weekly_options {display:none;}
+      #repeats_monthly_options {display:none;}
+      #repeats_yearly_options {display:none;}
+
+
+    </css>
+<% end %>

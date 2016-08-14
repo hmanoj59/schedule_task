@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   # skip_growlyflash only: %i[actions without growlyflash]
 
   protected
-  
+
   # Lograge method for adding extra info to Logging
   def append_info_to_payload(payload)
     super

@@ -9,6 +9,8 @@
         = link_to 'Dashboard', dashboard_index_path, class: 'nav-link'
         %li.nav-item.active
           = link_to 'schedules', schedules_path, class: 'nav-link'
+          %li.nav-item.active
+            = link_to 'Cloud account', cloud_accounts_index_path, class: 'nav-link'
         %span.sr-only (current)
   %ul.nav.navbar-nav.pull-xs-right
     - if current_user

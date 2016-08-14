@@ -1,0 +1,112 @@
+<script>
+$(document).ready(function(){
+
+  $("#access_key").hide();
+    $("#key").click(function(){
+        $("#iam_role").hide();
+        $("#access_key").show();
+
+    });
+    $("#iam").click(function(){
+        $("#iam_role").show();
+        $("#access_key").hide();
+    });
+});
+</script>
+
+<style>
+
+.border {
+  border-width:1px;
+  border-style: solid;
+  border-color: black;
+
+
+}
+</style>
+
+
+
+
+<div class = "border">
+
+<table>
+
+<tr>
+  <th>* Name</th>
+
+  <td><%= f.text_field(:name) %></td>
+</tr>
+<tr>
+  <th>* Cloud Provider</th>
+
+  <td><%= f.select :cloud_provider, ['AWS']%></td>
+</tr>
+<tr>
+  <th>* AWS Cloud Partition</th>
+
+  <td><%= f.select :aws_cloud_partition, ['Global AWS','AWS China','AWS Gov']%></td>
+</tr>
+<tr>
+  <th>* Access Method</th>
+  <td ><%= f.radio_button :access_method,"IAM ROLE",id: "iam",checked:"checked" %>IAM</td>
+  <td ><%= f.radio_button :access_method,"ACCESS KEY",id: "key" %>ACCESS KEY</br></td>
+  <!-- <td><%= f.text_field(:access_method) %></td> -->
+</tr>
+
+</table>
+
+
+
+<div id="iam_role" >
+IAM Role
+<hr>
+  <h5>How to grant access right for my AWS to Skejuler</h5>
+  <hr>
+<OL>
+  <LI>Sign in to the IAM Mangagement Console</br>
+  <LI>Click "Create New Role".</br>
+  <LI>Enter "skejuler" as your role name. The name does not really matter. It isfor your referece.</br>
+  <LI>Select " Role for Cross-Account Access".</br>
+  <LI>Select "Allows IAM users from a 3rd party AWS account to access this account."</br>
+  <LI>Enter the following information:
+  <hr>
+  Account ID <%= ENV['AWS_ACCOUNT_NUMBER'] %>
+  <hr>
+  External ID <%=@cloud_account.external_id %>
+  <%= f.hidden_field :external_id, :value => @cloud_account.external_id  %>
+
+  <hr>
+  Require MFA   NO </br></br>
+
+  Click "Next Step".</br>
+  <LI>Selet zero or more Managed Policies to attach to the role. Choose from:</br>
+  Recommended: Do not select any managed policies. Selecting this option is more secure, but you will need to return to your role and add permission later.</br>
+  Or select the policy called "PowerUserAccess". Selecting this option gets you up and running quickly with Skejuler but gives Skejuler too many permisions.  Click "Next Step".</br>
+  <LI>Click "Create Role".</br>
+  <LI>Select the newly created skejuler role in your roles list.</br>
+  <LI>Find the "Role ARN" value in the "Summary" section. Copy and paste it above.</br>
+</OL>
+
+    IAM Role ARN
+    <%= f.text_field(:iam_role_arn) %>
+
+</div>
+
+
+<div id="access_key">
+  <tr >
+    <td><p>Please enter your Access Key</p></td>
+  </tr>
+  <tr >
+    <th>Access Key ID:</th>
+    <td > <%= f.text_field(:iam_role_arn) %> </td>
+  </tr>
+  <tr >
+    <th>Secret Access Key:</th>
+    <td > <%= f.text_field(:iam_role_arn) %> </td>
+  </tr>
+</div>
+<%= submit_tag("Create") %>
+
+</div>

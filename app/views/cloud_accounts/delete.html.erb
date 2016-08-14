@@ -1,0 +1,10 @@
+<%= render(:partial => "backtolist") %>
+<h2>Delete Cloud Account </h2>
+
+<%= form_for(:cloud_account, :url=>{:action => 'destroy',:id => @cloud_account.id}) do |f| %>
+<p>Are you sure you want to delete this Cloud Account? </p>
+<p><%= @cloud_account.name  %></p>
+
+
+<%= submit_tag("Delete Cloud Account") %>
+<% end %>
