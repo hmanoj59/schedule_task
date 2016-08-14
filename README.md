@@ -1,8 +1,9 @@
-# README
+This is a tesk for scheduling the tasks
+Used ice_cube ruby gem for scheduling
+User can login set the scheduler for his task
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
+<<<<<<< HEAD
 Things you may want to cover:
 
 * Ruby version
@@ -30,3 +31,6 @@ CREATE database skejuler_dev;
 CREATE USER pguser  WITH password 'password';
 
 GRANT ALL ON database skejuler_dev TO pguser;
+=======
+This is the project of Ceruliun Global services
+>>>>>>> 1172d4a05a7f887006787e23bf89940e8efefc58
