@@ -32,5 +32,5 @@ CREATE USER pguser  WITH password 'password';
 
 GRANT ALL ON database skejuler_dev TO pguser;
 =======
-This is the project of Ceruliun Global services
+This is the project created at Ceruliun Global services
 >>>>>>> 1172d4a05a7f887006787e23bf89940e8efefc58
